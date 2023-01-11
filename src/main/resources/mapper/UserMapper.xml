@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--文件名要和mapper目录下的某个接口文件一致-->
+<mapper namespace="com.example.springboot_project.mapper.UserMapper">
+    <!--自定义查询规则——根据名字查询记录-->
+    <select id="selectMapByName" resultType="map">
+        select * from user where name = #{name};
+    </select>
+</mapper>

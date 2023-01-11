@@ -1,0 +1,25 @@
+spring:
+  # 数据源
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/php?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  # 有关邮箱的配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    # 协议：如果端口为465，则协议为SMTPS；如果端口为587，则协议为SMTP
+    protocol: smtps
+    username: 2690085099@qq.com
+    password: dmjtlmjfqijcdfba
+    # from是使用@Value()自定义的
+    from: 2690085099@qq.com
+    # 编码格式 默认就是utf-8
+    default-encoding: utf-8
+server:
+  port: 80
+mybatis-plus:
+  configuration:
+    # 输出日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
