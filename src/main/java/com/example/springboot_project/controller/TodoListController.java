@@ -59,7 +59,7 @@ public class TodoListController {
         
         if (userCount == 0) {
             // 插入一条记录
-            int result = userMapper.insert(user);
+            userMapper.insert(user);
             return "注册成功";
         } else {
             return "用户名重复，请更换用户名！";
@@ -74,19 +74,6 @@ public class TodoListController {
     @RequestMapping("/postEmail")
     public String sendThymeleafMail(@RequestBody JSONObject request) {
         try {
-            // 查询用户后返回的记录条数，若是0则无记录
-            Long userCount = userMapper.selectCount(
-                    // 根据前端传来的name的值去查找记录，并列出name字段
-                    new QueryWrapper<User>().eq("name", request.get("email")).select("name")
-            );
-            // 若用户还没注册过
-            /*if (userCount == 0) {
-            
-            }
-            // 如果已存在此用户
-            else {
-                return "已存在此用户，请更换邮箱地址！";
-            }*/
             // 发送包含验证码的邮件
             mailService.sendThymeleafMail(request.get("email").toString(),
                     request.get("verificationCode").toString());
@@ -435,7 +422,8 @@ public class TodoListController {
      */
     @RequestMapping("/getDate")
     public long getDate() {
-        return System.currentTimeMillis();
+        // 要除以1000才是Unix时间戳：
+        return System.currentTimeMillis() / 1000;
     }
     
     /**
