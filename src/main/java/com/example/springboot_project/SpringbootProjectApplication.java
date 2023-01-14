@@ -3,6 +3,7 @@ package com.example.springboot_project;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * SpringBoot框架的主类，本质上是Spring的一个组件
@@ -12,6 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("com.example.springboot_project.mapper")
+// 开启MyBatisPlus的二级缓存
+@EnableCaching
 public class SpringbootProjectApplication {
     
     /**
