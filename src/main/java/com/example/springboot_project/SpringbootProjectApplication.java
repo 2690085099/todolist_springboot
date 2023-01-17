@@ -13,10 +13,9 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 @SpringBootApplication
 @MapperScan("com.example.springboot_project.mapper")
-// 开启MyBatisPlus的二级缓存
+// 开启缓存
 @EnableCaching
 public class SpringbootProjectApplication {
-    
     /**
      * 程序运行入口
      */
@@ -24,5 +23,4 @@ public class SpringbootProjectApplication {
         // 运行SpringBoot应用
         SpringApplication.run(SpringbootProjectApplication.class, args);
     }
-    
 }
