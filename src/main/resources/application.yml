@@ -19,6 +19,11 @@ spring:
     from: 2690085099@qq.com
     # 编码格式 默认就是utf-8
     default-encoding: utf-8
+  data:
+    redis:
+      host: localhost
+      database: 0
+      port: 6379
 server:
   port: 80
 mybatis-plus:
