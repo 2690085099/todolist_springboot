@@ -1,5 +1,6 @@
 package com.example.springboot_project.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -25,7 +26,7 @@ public class User {
      * 如果加上“type = IdType.AUTO”参数，则主键的值不使用雪花算法生成，而是根据数据库的主键自增（数据库也要设置）
      * type默认是IdType.ASSIGN_ID，与数据库id自增无关
      */
-    @TableId(value = "id")
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     
     /**
