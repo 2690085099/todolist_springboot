@@ -9,6 +9,7 @@ import com.example.springboot_project.pojo.TodoList;
 import com.example.springboot_project.pojo.User;
 import com.example.springboot_project.tool.EmailUtil;
 import com.example.springboot_project.tool.JWTUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,6 +89,7 @@ public class TodoListController {
      * user需要传入的参数：name（姓名）
      */
     @RequestMapping("/loginAnonymously")
+    @Cacheable("loginAnonymously")
     public JSONObject loginAnonymously(@RequestBody User user) {
         // 创建一个JSON对象
         JSONObject resultJson = new JSONObject();
@@ -147,6 +149,7 @@ public class TodoListController {
      * 用户登录的方法
      */
     @RequestMapping("/login")
+    @Cacheable("login")
     public JSONObject login(@RequestBody User user) {
         JSONObject resultJson = new JSONObject();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
@@ -196,6 +199,7 @@ public class TodoListController {
      * RequestHeader注解：指定HTTP请求头的键，后面的参数用来接收键对应的值
      */
     @RequestMapping("/verification")
+    @Cacheable("verification")
     public JSONObject verification(@RequestBody User user, @RequestHeader("token") String token) {
         JSONObject resultJson = new JSONObject();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
